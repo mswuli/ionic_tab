@@ -1,0 +1,52 @@
+<style>
+
+    #searchInput{
+        border: 2px solid #808080;
+        width: 70%;
+        margin-left: 10%;
+    }
+    #navLeft{
+        width:30%;
+
+    }
+    #navLeft li{
+       height: 50px;
+
+        line-height: 50px;
+        text-align: center;
+
+        font-size: 12px;
+    }
+    #navRight{
+        margin-left: 30%;
+        width: 70%;
+    }
+    .nav-blur{
+        color:#252525;
+        border:1px solid #e0e0e0;
+        background-color: #f3f4f6;
+    }
+    .nav-current{
+        color:red;
+        background-color: #fff;
+    }
+</style>
+<ion-view id="tab-category" cache-view="false">
+    <!--<header>-->
+        <!--<input type="search" placeholder="请输入要搜索的内容" id="searchInput"/>-->
+    <!--</header>-->
+    <ion-content id="navLeft">
+        <ul>
+            <li ng-repeat="i in categoryData" ng-class="$index==0?'nav-current':'nav-blur'" ng-click="categoryLeftClick($event);getCategoryDetailData(i.typeNumber)">{{i.name}}</li>
+        </ul>
+    </ion-content>
+    <ion-content id="navRight" lazy-scroll>
+        <img ng-src="img/category/banner_1.jpg" alt="" width="100%"/>
+        <ul>
+            <li ng-repeat="item in categoryDetailData" ui-sref="goodsList({typeNumber:{{item.typeNumber}}})">
+                <img image-lazy-src="{{item.src}}" alt="" image-lazy-loader="lines"/>
+                {{item.name}}
+            </li>
+        </ul>
+    </ion-content>
+</ion-view>

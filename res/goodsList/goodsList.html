@@ -1,0 +1,12 @@
+<header>商品列表</header>
+<ion-content>
+    <ion-list>
+        <ion-item ng-repeat="i in data">
+            {{i.name}}
+        </ion-item>
+    </ion-list>
+    <ion-infinite-scroll
+            on-infinite="func_loadMoreGoodsList()"
+            distance="1%">
+    </ion-infinite-scroll>
+</ion-content>
